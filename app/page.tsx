@@ -39,7 +39,7 @@ export default function Home() {
       aboutText1: "Nordic High Jump Challenge er et World Athletics-godkjent stevne (Level D) som arrangeres gjennom to konkurranser – først i Mariestad (Sverige) 12. juli, og deretter i Bergen (Norge) 16. juli.",
       aboutText2: "Vi samler de beste nordiske høydehopperne, i tillegg til topp internasjonale utøvere fra andre land, for et eksplosivt sommeroppgjør – både for menn og kvinner.",
       formatTitle: "Konkurranseformat",
-      formatText: "Formatet er enkelt: to stevner, og sammenlagtresultatene teller. Det deles ut pengepremier til de tre beste utøverne totalt. Scenen er satt for personlige rekorder, årsbester og publikumsvennlig spenning helt til siste forsøk.",
+      formatText: "Formatet er enkelt: to stevner, og sammenlagte resultater teller. Det deles ut pengepremier til de tre beste utøverne totalt. Scenen er satt for personlige rekorder, årsbester og spenning helt til siste forsøk.",
       invitationTitle: "Kun på invitasjon",
       invitationText: "Dette er ikke et åpnet stevne – deltakelse skjer kun via invitasjon. Interessert i å bli vurdert? Send oss en e-post:",
       readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinnerliste.",
@@ -72,6 +72,20 @@ export default function Home() {
 
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-16 text-center">
+        {/* Official Logos */}
+        <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
+          <img 
+            src="/images/world-athletics-logo.png" 
+            alt="World Athletics" 
+            className="h-24 w-24 object-contain"
+          />
+          <img 
+            src="/images/european-athletics-logo.png" 
+            alt="European Athletics" 
+            className="h-16 object-contain"
+          />
+        </div>
+
         <h1 className="text-5xl font-bold text-gray-900 mb-4">
           {t.title}
         </h1>
