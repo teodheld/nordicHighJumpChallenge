@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [language, setLanguage] = useState<'en' | 'no'>('en');
@@ -15,7 +16,7 @@ export default function Home() {
       aboutText1: "The Nordic High Jump Challenge is a World Athletics–approved meeting (Level D) held across two competitions – first in Mariestad (Sweden) on July 12, and then in Bergen (Norway) on July 16.",
       aboutText2: "We're bringing together the best Nordic high jumpers along with top international athletes from other countries for an explosive summer showdown – for both men and women.",
       formatTitle: "Competition Format",
-      formatText: "The format is simple: two meets, combined results count. Cash prizes will be awarded to the top three athletes overall. The stage is set for personal bests, season's bests, and crowd-pleasing excitement right up to the final attempt.",
+      formatText: "The format is simple: two meets, combined results count. Cash prizes will be awarded and the stage is set for personal bests, season's bests, and crowd-pleasing excitement right up to the final attempt.",
       invitationTitle: "Invitation Only",
       invitationText: "This is not an open-entry event – participation is by invitation only. Interested in being considered? Send us an email:",
       readyText: "Ready to fly? Nordic High Jump Challenge – Mariestad, July 12 → Bergen, July 16. Two cities. Two nights. One Nordic champion list.",
@@ -27,8 +28,8 @@ export default function Home() {
       levelTitle: "🏆 World Athletics Level D",
       levelText: "Officially approved meeting",
       prizeTitle: "💰 Cash Prizes",
-      prizeText: "Top 3 overall winners",
-      footer: "© 2025 Nordic High Jump Challenge. Part of Fanahoppet."
+      prizeText: "Click for more info",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       title: "Nordic High Jump Challenge",
@@ -39,7 +40,7 @@ export default function Home() {
       aboutText1: "Nordic High Jump Challenge er et World Athletics-godkjent stevne (Level D) som arrangeres gjennom to konkurranser – først i Mariestad (Sverige) 12. juli, og deretter i Bergen (Norge) 16. juli.",
       aboutText2: "Vi samler de beste nordiske høydehopperne, i tillegg til topp internasjonale utøvere fra andre land, for et eksplosivt sommeroppgjør – både for menn og kvinner.",
       formatTitle: "Konkurranseformat",
-      formatText: "Formatet er enkelt: to stevner, og sammenlagte resultater teller. Det deles ut pengepremier til de tre beste utøverne totalt. Scenen er satt for personlige rekorder, årsbester og spenning helt til siste forsøk.",
+      formatText: "Formatet er enkelt: to stevner, og sammenlagtresultatene teller. Det deles ut pengepremier og scenen er satt for personlige rekorder, årsbester og publikumsvennlig spenning helt til siste forsøk.",
       invitationTitle: "Kun på invitasjon",
       invitationText: "Dette er ikke et åpnet stevne – deltakelse skjer kun via invitasjon. Interessert i å bli vurdert? Send oss en e-post:",
       readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinnerliste.",
@@ -51,8 +52,8 @@ export default function Home() {
       levelTitle: "🏆 World Athletics Level D",
       levelText: "Offisielt godkjent stevne",
       prizeTitle: "💰 Pengepremier",
-      prizeText: "Topp 3 sammenlagt",
-      footer: "© 2025 Nordic High Jump Challenge. Del av Fanahoppet."
+      prizeText: "Trykk for mer info",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
@@ -127,12 +128,14 @@ export default function Home() {
             <p className="text-gray-600">{t.levelText}</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              {t.prizeTitle}
-            </h3>
-            <p className="text-gray-600">{t.prizeText}</p>
-          </div>
+          <Link href="/prizes">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t.prizeTitle}
+              </h3>
+              <p className="text-gray-600">{t.prizeText}</p>
+            </div>
+          </Link>
         </div>
       </section>
 
