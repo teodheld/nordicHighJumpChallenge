@@ -72,61 +72,81 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <header className="container mx-auto px-4 py-16 text-center">
-        {/* Official Logos */}
-        <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
-          <img 
-            src="/images/world-athletics-logo.png" 
-            alt="World Athletics" 
-            className="h-24 w-24 object-contain"
-          />
-          <img 
-            src="/images/european-athletics-logo.png" 
-            alt="European Athletics" 
-            className="h-16 object-contain"
-          />
-        </div>
+      <header className="relative container mx-auto px-4 py-16 text-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0 opacity-25"
+          style={{
+            backgroundImage: 'url(/images/highjump-backround.jpeg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        
+        {/* Content Overlay */}
+        <div className="relative z-10">
+          {/* Official Logos */}
+          <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
+            <img 
+              src="/images/world-athletics-logo.png" 
+              alt="World Athletics" 
+              className="h-24 w-24 object-contain"
+            />
+            <img 
+              src="/images/european-athletics-logo.png" 
+              alt="European Athletics" 
+              className="h-16 object-contain"
+            />
+          </div>
 
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">
-          {t.title}
-        </h1>
-        <p className="text-2xl text-blue-600 font-semibold mb-2">
-          {t.subtitle}
-        </p>
-        <p className="text-xl text-gray-600 mb-8">
-          {t.tagline}
-        </p>
-        <a
-          href="mailto:friidrett@fanail.no"
-          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
-        >
-          {t.registerBtn}
-        </a>
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            {t.title}
+          </h1>
+          <p className="text-2xl text-blue-600 font-semibold mb-2">
+            {t.subtitle}
+          </p>
+          <p className="text-xl text-gray-600 mb-8">
+            {t.tagline}
+          </p>
+          <a
+            href="mailto:friidrett@fanail.no"
+            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+          >
+            {t.registerBtn}
+          </a>
+        </div>
       </header>
 
       {/* Key Info Cards */}
       <section className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              {t.date1Title}
-            </h3>
-            <p className="text-gray-600 text-lg">{t.date1Text}</p>
-          </div>
+          <Link href="/mariestad">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t.date1Title}
+              </h3>
+              <p className="text-gray-600">{t.date1Text}</p>
+            </div>
+          </Link>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              {t.date2Title}
-            </h3>
-            <p className="text-gray-600 text-lg">{t.date2Text}</p>
-          </div>
+          <Link href="/bergen">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t.date2Title}
+              </h3>
+              <p className="text-gray-600">{t.date2Text}</p>
+            </div>
+          </Link>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              {t.levelTitle}
-            </h3>
-            <p className="text-gray-600">{t.levelText}</p>
-          </div>
+          <Link href="/world-athletics">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t.levelTitle}
+              </h3>
+              <p className="text-gray-600">{t.levelText}</p>
+            </div>
+          </Link>
 
           <Link href="/prizes">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
