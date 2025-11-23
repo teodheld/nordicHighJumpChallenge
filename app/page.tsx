@@ -6,6 +6,42 @@ import Link from 'next/link';
 export default function Home() {
   const [language, setLanguage] = useState<'en' | 'no'>('en');
 
+  // Athletes data - add all your athletes here
+  const athletes = [
+    {
+      name: "Tobias Heldal",
+      slug: "tobias-heldal",
+      photo: "/images/athletes/tobias-heldal.jpeg",
+      flag: "🇳🇴",
+      pb: "2.08m",
+      club: "Fana IL",
+      country: "Norway"
+    },
+    {
+      name: "Teodor Heldal",
+      slug: "teodor-heldal",
+      photo: "/images/athletes/teodor-heldal.jpeg",
+      flag: "🇳🇴",
+      pb: "2.01m",
+      club: "Fana IL",
+      country: "Norway"
+    },
+    {
+      name: "More To Come",
+      isPlaceholder: true
+    }
+    // Add more athletes here
+    // {
+    //   name: "Jane Smith",
+    //   slug: "jane-smith",
+    //   photo: "/images/athletes/jane-smith.jpg",
+    //   flag: "🇸🇪",
+    //   pb: "2.40m",
+    //   club: "Stockholm IF",
+    //   country: "Sweden"
+    // },
+  ];
+
   const content = {
     en: {
       title: "Nordic High Jump Challenge",
@@ -17,6 +53,8 @@ export default function Home() {
       aboutText2: "We're bringing together the best Nordic high jumpers along with top international athletes from other countries for an explosive summer showdown – for both men and women.",
       formatTitle: "Competition Format",
       formatText: "The format is simple: two meets, combined results count. Cash prizes will be awarded and the stage is set for personal bests, season's bests, and crowd-pleasing excitement right up to the final attempt.",
+      athletesTitle: "Meet the Athletes",
+      athletesSubtitle: "Get to know the competitors",
       invitationTitle: "Invitation Only",
       invitationText: "This is not an open-entry event – participation is by invitation only. Interested in being considered? Send us an email:",
       readyText: "Ready to fly? Nordic High Jump Challenge – Mariestad, July 12 → Bergen, July 16. Two cities. Two nights. One Nordic champion list.",
@@ -41,6 +79,8 @@ export default function Home() {
       aboutText2: "Vi samler de beste nordiske høydehopperne, i tillegg til topp internasjonale utøvere fra andre land, for et eksplosivt sommeroppgjør – både for menn og kvinner.",
       formatTitle: "Konkurranseformat",
       formatText: "Formatet er enkelt: to stevner, og sammenlagtresultatene teller. Det deles ut pengepremier og scenen er satt for personlige rekorder, årsbester og publikumsvennlig spenning helt til siste forsøk.",
+      athletesTitle: "Møt utøverne",
+      athletesSubtitle: "Bli kjent med konkurrentene",
       invitationTitle: "Kun på invitasjon",
       invitationText: "Dette er ikke et åpnet stevne – deltakelse skjer kun via invitasjon. Interessert i å bli vurdert? Send oss en e-post:",
       readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinnerliste.",
@@ -75,7 +115,7 @@ export default function Home() {
       <header className="relative container mx-auto px-4 py-16 text-center overflow-hidden">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 z-0 opacity-25"
+          className="absolute inset-0 z-0 opacity-40"
           style={{
             backgroundImage: 'url(/images/highjump-backround.jpeg)',
             backgroundSize: 'cover',
@@ -121,6 +161,7 @@ export default function Home() {
       {/* Key Info Cards */}
       <section className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          
           <Link href="/mariestad">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -187,6 +228,65 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Athletes Section */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            {t.athletesTitle}
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 text-center">
+            {t.athletesSubtitle}
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {athletes.map((athlete, index) => (
+              athlete.isPlaceholder ? (
+                // "More To Come" placeholder card
+                <div key={`placeholder-${index}`} className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-md overflow-hidden h-full flex items-center justify-center border-2 border-dashed border-blue-300">
+                  <div className="p-6 text-center">
+                    <div className="text-6xl mb-4">✨</div>
+                    <h3 className="text-2xl font-bold text-gray-700 mb-2">
+                      {language === 'en' ? 'More Athletes Coming Soon' : 'Flere utøvere kommer snart'}
+                    </h3>
+                    <p className="text-gray-600">
+                      {language === 'en' ? 'Stay tuned!' : 'Hold deg oppdatert!'}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                // Regular athlete card
+                <Link key={athlete.slug} href={`/athletes/${athlete.slug}`}>
+                  <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 overflow-hidden h-full">
+                    <div className="h-64 bg-gray-200 relative">
+                      <img 
+                        src={athlete.photo} 
+                        alt={athlete.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 right-2 bg-white px-3 py-1 rounded-full shadow-md">
+                        <span className="text-xl">{athlete.flag}</span>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {athlete.name}
+                      </h3>
+                      <p className="text-blue-600 font-semibold text-lg mb-2">
+                        PB: {athlete.pb}
+                      </p>
+                      <p className="text-gray-600">
+                        {athlete.club}, {athlete.country}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              )
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Invitation Section */}
       <section className="container mx-auto px-4 py-12">
