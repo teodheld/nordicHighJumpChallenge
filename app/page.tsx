@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "Nordic high jump challenge",
+  description: "Where nordic highjumpers raise the bar!"
+}
+
 export default function Home() {
   const [language, setLanguage] = useState<'en' | 'no'>('en');
 
