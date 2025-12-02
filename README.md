@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nordic High Jump Challenge
 
-## Getting Started
+**Nordic High Jump Challenge** er en internasjonal høydehopparrangement godkjent av World Athletics (Level D), hvor de beste nordiske høydehopperne — sammen med utvalgte internasjonale utøvere — møtes til konkurranse i to byer. Arrangementet foregår i to runder: først i Mariestad (Sverige), deretter i Bergen (Norge). De samlede resultatene fra begge runder avgjør den endelige vinneren.  
 
-First, run the development server:
+Formatet er invitert-only, og det er lagt opp til en spektakulær sommerduell med mulighet for personlig rekord, sesongbeste og pengepremier.  
+To byer. To netter. Én nordisk champion.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+For deltakelse: kontakt friidrett@fanail.no.  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Formål  
+- Samle topp utøvere — både fra Norden og internasjonalt — i ett konkurranseopplegg.  
+- Skape et atmosfærisk og prestasjonsfokusert høydehopp-event som gir mulighet for sterke resultater.  
+- Fremheve høydehopp som friidrettsgren i Norden med et arrangement over landegrenser.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Format  
+- To konkurranser → kombinert resultat.  
+- Både menn og kvinner deltar.  
+- Invitasjon kreves for å delta.  
+- Pengepremier til vinnerne.  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Kontakt  
+Interesserte som ønsker å bli vurdert: send e-post til friidrett@fanail.no  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 Nordic High Jump Challenge  
