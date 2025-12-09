@@ -1,9 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function WorldAthleticsPage() {
-  const [language, setLanguage] = useState<'en' | 'no'>('en');
+  // Start with default language (no localStorage check initially)
+    const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
+    const [isClient, setIsClient] = useState(false);
+  
+    // Load saved language after component mounts (client-side only)
+    useEffect(() => {
+      setIsClient(true);
+      const saved = localStorage.getItem('preferredLanguage');
+      if (saved && (saved === 'en' || saved === 'no' || saved === 'sv')) {
+        setLanguage(saved as 'en' | 'no' | 'sv');
+      }
+    }, []);
+  
+    // Save language when it changes
+    const handleLanguageChange = (newLang: 'en' | 'no' | 'sv') => {
+      setLanguage(newLang);
+      if (isClient) {
+        localStorage.setItem('preferredLanguage', newLang);
+      }
+    };
 
   const content = {
     en: {
@@ -59,6 +78,33 @@ export default function WorldAthleticsPage() {
       standards5: "Må oppfylle krav til anlegg- og utstyrssertifisering",
       conclusionTitle: "Hvorfor det betyr noe",
       conclusionText: "Å være utpekt som en World Athletics Level D-konkurranse sikrer at Nordic High Jump Challenge oppfyller internasjonale standarder og gir utøvere meningsfull konkurranse som kan fremme deres karriere og rangeringer på verdensscenen."
+    },
+    sv: {
+      title: "World Athletics Level D",
+      subtitle: "Officiell tävlingsstatus",
+      intro: "Nordic High Jump Challenge är en World Athletics Level D-tävling, vilket betyder att det är ett officiellt erkänt internationellt friidrottsmöte.",
+      whatIsTitle: "Vad är en Level D-tävling?",
+      whatIs1: "World Athletics kategoriserar alla tävlingar världen över i 10 olika kategorier för sitt världsrankingsystem: OW, DF, GW, GL, A, B, C, D, E och F. Level D-tävlingar är internationella inbjudningsmöten som bidrar till idrottarnas världsrankingpoäng.",
+      whatIs2: "Medan 99% av alla tävlingar världen över klassificeras som F-nivå, representerar Level D ett betydande steg uppåt i prestige och tävlingsvärde. Dessa tävlingar lockar starka fält av idrottare och måste följa World Athletics regler och föreskrifter.",
+      benefitsTitle: "Fördelar för idrottare",
+      benefit1Title: "Världsrankingpoäng",
+      benefit1Text: "Prestationer vid Level D-tävlingar bidrar till idrottarnas världsranking, vilket är avgörande för kvalificering till stora mästerskap inklusive världsmästerskapet och de olympiska spelen.",
+      benefit2Title: "Internationell tävling",
+      benefit2Text: "Level D-möten samlar kvalitetsidrottare från flera länder och ger värdefull internationell tävlingserfarenhet.",
+      benefit3Title: "Officiellt erkännande",
+      benefit3Text: "Resultat från Level D-tävlingar ratificeras officiellt av World Athletics och kan räknas mot rankingpositioner och kvalifikationsstandarder.",
+      benefit4Title: "Prestationsmöjlighet",
+      benefit4Text: "Kombinationen av kvalitetstävling och officiell status skapar en ideal miljö för idrottare att uppnå personliga rekord och säsongens bästa.",
+      rankingsTitle: "Världsrankingsystemet",
+      rankingsText: "Idrottare tjänar både resultatpoäng (baserat på deras prestation) och placeringspoäng (baserat på deras slutposition och tävlingskategorin). Vid Level D-tävlingar får de 8 bästa placeringspoäng från 40 poäng för förstaplatsen ner till 5 poäng för åttondeplats i friidrottsgrenar.",
+      standardsTitle: "Tävlingsstandarder",
+      standards1: "Måste ha ett World Athletics eller Area Association-tillstånd",
+      standards2: "Måste följa alla World Athletics tekniska regler",
+      standards3: "Resultat måste vara officiellt ratificerade",
+      standards4: "Tävlingen måste vara öppen för internationella idrottare",
+      standards5: "Måste uppfylla krav på anläggnings- och utrustningscertifiering",
+      conclusionTitle: "Varför det spelar roll",
+      conclusionText: "Att vara utsedd som en World Athletics Level D-tävling säkerställer att Nordic High Jump Challenge uppfyller internationella standarder och ger idrottare meningsfull tävling som kan främja deras karriärer och rankning på världsscenen."
     }
   };
 
@@ -78,13 +124,16 @@ export default function WorldAthleticsPage() {
       </div>
 
       {/* Language Toggle */}
-      <div className="fixed top-4 right-4 z-10">
-        <button
-          onClick={() => setLanguage(language === 'en' ? 'no' : 'en')}
+      <div className="absolute top-4 right-4 z-10">
+        <select
+          value={language}
+          onChange={(e) => handleLanguageChange(e.target.value as 'en' | 'no' | 'sv')}
           className="bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold text-gray-700"
         >
-          {language === 'en' ? '🇳🇴 Norsk' : '🇬🇧 English'}
-        </button>
+          <option value="en">🇬🇧 English</option>
+          <option value="no">🇳🇴 Norsk</option>
+          <option value="sv">🇸🇪 Svenska</option>
+        </select>
       </div>
 
       {/* Header */}

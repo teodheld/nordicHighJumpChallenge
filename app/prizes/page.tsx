@@ -1,10 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function PrizesPage() {
-  const [language, setLanguage] = useState<'en' | 'no'>('en');
+  // Start with default language (no localStorage check initially)
+    const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
+    const [isClient, setIsClient] = useState(false);
+  
+    // Load saved language after component mounts (client-side only)
+    useEffect(() => {
+      setIsClient(true);
+      const saved = localStorage.getItem('preferredLanguage');
+      if (saved && (saved === 'en' || saved === 'no' || saved === 'sv')) {
+        setLanguage(saved as 'en' | 'no' | 'sv');
+      }
+    }, []);
+  
+    // Save language when it changes
+    const handleLanguageChange = (newLang: 'en' | 'no' | 'sv') => {
+      setLanguage(newLang);
+      if (isClient) {
+        localStorage.setItem('preferredLanguage', newLang);
+      }
+    };
 
   const content = {
     en: {
@@ -52,6 +71,29 @@ export default function PrizesPage() {
       contactTitle: "Spørsmål?",
       contactText: "For mer informasjon om premier og konkurranseregler, kontakt oss på:",
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+    },
+    sv: {
+      backBtn: "← Tillbaka till startsidan",
+      title: "Prispengar",
+      subtitle: "Nordic High Jump Challenge 2026",
+      totalPrize: "Total prispott för alla grenar i båda tävlingarna är €6,000",
+      bonusPrize: "Ett bonuspris kommer att tilldelas den sammanlagda vinnaren av Nordic High Jump Challenge för män och kvinnor.",
+      distributionTitle: "Fördelning av prispengar",
+      distributionSubtitle: "Prispengar för varje enskild tävling kommer att fördelas enligt följande:",
+      perMeet: "Per tävling/möte: €1,500",
+      championTitle: "Nordisk mästare i höjdhopp",
+      championSubtitle: "I slutet av tävlingsserien kommer endast en sann mästare att kvarstå.",
+      championText1: "Den sammanlagda vinnaren kommer att krönas genom att kombinera varje idrottares bästa höjder från de två tävlingarna.",
+      championText2: "Den högst rankade mannen och kvinnan över båda mötena vinner huvudtitlarna:",
+      kingTitle: "Nordisk höjdhoppskung",
+      queenTitle: "Nordisk höjdhoppsdrottning",
+      formatTitle: "Tävlingsformat",
+      formatText1: "Nordic High Jump Challenge består av två höjdhoppstävlingar i Mariestad (12 juli) och Bergen (16 juli). Samma idrottare tävlar i båda tävlingarna, och den sammanlagda ställningen bestäms genom att kombinera varje idrottares bästa klarade höjd från de två tävlingarna.",
+      formatText2: "Den högst rankade mannen och kvinnan över båda tävlingarna kommer att krönas till nordisk höjdhoppskung och nordisk höjdhoppsdrottning.",
+      formatText3: "Dessutom har varje möte sina egna individuella resultat och prispengar: de 5 bästa männen och de 5 bästa kvinnorna i varje tävling kommer att få prispengar baserat på deras placering i det mötet.",
+      contactTitle: "Frågor?",
+      contactText: "För mer information om priser och tävlingsregler, kontakta oss på:",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
@@ -69,12 +111,15 @@ export default function PrizesPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Language Toggle */}
       <div className="absolute top-4 right-4 z-10">
-        <button
-          onClick={() => setLanguage(language === 'en' ? 'no' : 'en')}
+        <select
+          value={language}
+          onChange={(e) => handleLanguageChange(e.target.value as 'en' | 'no' | 'sv')}
           className="bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold text-gray-700"
         >
-          {language === 'en' ? '🇳🇴 Norsk' : '🇬🇧 English'}
-        </button>
+          <option value="en">🇬🇧 English</option>
+          <option value="no">🇳🇴 Norsk</option>
+          <option value="sv">🇸🇪 Svenska</option>
+        </select>
       </div>
 
       <div className="container mx-auto px-4 py-16">

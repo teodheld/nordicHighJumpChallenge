@@ -10,7 +10,7 @@ export default function MariestadPage() {
           <div className="text-6xl mb-6">🏆</div>
           
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Mariestad
+            MAIF-hoppet
           </h1>
           
           <p className="text-xl text-gray-600 mb-8">

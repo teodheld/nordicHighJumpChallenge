@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function MariestadPage() {
+export default function BergenPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
       <div className="max-w-2xl w-full text-center">
@@ -10,7 +10,7 @@ export default function MariestadPage() {
           <div className="text-6xl mb-6">🏆</div>
           
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Bergen
+            Fana-hoppet
           </h1>
           
           <p className="text-xl text-gray-600 mb-8">

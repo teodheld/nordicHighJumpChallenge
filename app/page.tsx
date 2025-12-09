@@ -1,10 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  const [language, setLanguage] = useState<'en' | 'no'>('en');
+  // Start with default language (no localStorage check initially)
+  const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
+  const [isClient, setIsClient] = useState(false);
+
+  // Load saved language after component mounts (client-side only)
+  useEffect(() => {
+    setIsClient(true);
+    const saved = localStorage.getItem('preferredLanguage');
+    if (saved && (saved === 'en' || saved === 'no' || saved === 'sv')) {
+      setLanguage(saved as 'en' | 'no' | 'sv');
+    }
+  }, []);
+
+  // Save language when it changes
+  const handleLanguageChange = (newLang: 'en' | 'no' | 'sv') => {
+    setLanguage(newLang);
+    if (isClient) {
+      localStorage.setItem('preferredLanguage', newLang);
+    }
+  };
 
   const content = {
     en: {
@@ -21,9 +40,9 @@ export default function Home() {
       invitationText: "This is not an open-entry event – participation is by invitation only. Interested in being considered? Send us an email:",
       readyText: "Ready to fly? Nordic High Jump Challenge – Mariestad, July 12 → Bergen, July 16. Two cities. Two nights. One Nordic champion list.",
       moreInfo: "More information about the event will be announced soon.",
-      date1Title: "🗓️ Mariestad, Sweden",
+      date1Title: "🗓️ MAIFhoppet, Sweden",
       date1Text: "July 12, 2026",
-      date2Title: "🗓️ Bergen, Norway",
+      date2Title: "🗓️ Fanahoppet, Norway",
       date2Text: "July 16, 2026",
       levelTitle: "🏆 World Athletics Level D",
       levelText: "Officially approved meeting",
@@ -45,15 +64,39 @@ export default function Home() {
       invitationText: "Dette er ikke et åpnet stevne – deltakelse skjer kun via invitasjon. Interessert i å bli vurdert? Send oss en e-post:",
       readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinnerliste.",
       moreInfo: "Mer informasjon om arrangementet kommer snart.",
-      date1Title: "🗓️ Mariestad, Sverige",
+      date1Title: "🗓️ MAIFhoppet, Sverige",
       date1Text: "12. juli 2026",
-      date2Title: "🗓️ Bergen, Norge",
+      date2Title: "🗓️ Fanahoppet, Norge",
       date2Text: "16. juli 2026",
       levelTitle: "🏆 World Athletics Level D",
       levelText: "Offisielt godkjent stevne",
       prizeTitle: "💰 Pengepremier",
       prizeText: "Trykk for mer info",
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+    },
+    sv: {
+      title: "Nordic High Jump Challenge",
+      subtitle: "Där de nordiska höjdhopparna höjer ribban!",
+      tagline: "Två städer. En titel.",
+      registerBtn: "Kontakta för inbjudan",
+      aboutTitle: "Om utmaningen",
+      aboutText1: "Nordic High Jump Challenge är ett World Athletics-godkänt möte (Level D) som hålls över två tävlingar – först i Mariestad (Sverige) den 12 juli, och sedan i Bergen (Norge) den 16 juli.",
+      aboutText2: "Vi samlar de bästa nordiska höjdhopparna tillsammans med toppinternationella idrottare från andra länder för en explosiv sommaruppgörelse – för både män och kvinnor.",
+      formatTitle: "Tävlingsformat",
+      formatText: "Formatet är enkelt: två möten, sammanlagda resultat räknas. Kontantpriser kommer att delas ut och scenen är satt för personliga rekord, säsongens bästa och publikvänlig spänning ända fram till sista försöket.",
+      invitationTitle: "Endast på inbjudan",
+      invitationText: "Detta är inte en öppen tävling – deltagande sker endast via inbjudan. Intresserad av att bli övervägd? Skicka ett e-postmeddelande till oss:",
+      readyText: "Redo att flyga? Nordic High Jump Challenge – Mariestad, 12 juli → Bergen, 16 juli. Två städer. Två kvällar. En nordisk vinnarlista.",
+      moreInfo: "Mer information om evenemanget kommer att meddelas snart.",
+      date1Title: "🗓️ MAIFhoppet, Sverige",
+      date1Text: "12 juli 2026",
+      date2Title: "🗓️ Fanahoppet, Norge",
+      date2Text: "16 juli 2026",
+      levelTitle: "🏆 World Athletics Level D",
+      levelText: "Officiellt godkänt möte",
+      prizeTitle: "💰 Kontantpriser",
+      prizeText: "Klicka för mer info",
+      footer: "© 2025 Nordic High Jump Challenge. Alla rättigheter förbehållna."
     }
   };
 
@@ -63,12 +106,15 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Language Toggle */}
       <div className="absolute top-4 right-4 z-10">
-        <button
-          onClick={() => setLanguage(language === 'en' ? 'no' : 'en')}
+        <select
+          value={language}
+          onChange={(e) => handleLanguageChange(e.target.value as 'en' | 'no' | 'sv')}
           className="bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold text-gray-700"
         >
-          {language === 'en' ? '🇳🇴 Norsk' : '🇬🇧 English'}
-        </button>
+          <option value="en">🇬🇧 English</option>
+          <option value="no">🇳🇴 Norsk</option>
+          <option value="sv">🇸🇪 Svenska</option>
+        </select>
       </div>
 
       {/* Hero Section */}
