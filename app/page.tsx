@@ -105,11 +105,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Language Toggle */}
-      <div className="absolute top-4 right-4 z-10">
+      <div className="fixed top-4 right-4 z-20">
         <select
           value={language}
           onChange={(e) => handleLanguageChange(e.target.value as 'en' | 'no' | 'sv')}
-          className="bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold text-gray-700"
+          className="bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold text-gray-700 cursor-pointer"
         >
           <option value="en">🇬🇧 English</option>
           <option value="no">🇳🇴 Norsk</option>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function WorldAthleticsPage() {
   // Start with default language (no localStorage check initially)
@@ -26,6 +27,7 @@ export default function WorldAthleticsPage() {
 
   const content = {
     en: {
+      backBtn: "← Back to Home",
       title: "World Athletics Level D",
       subtitle: "Official Competition Status",
       intro: "The Nordic High Jump Challenge is a World Athletics Level D competition, meaning it's an officially recognized international athletics meeting.",
@@ -53,6 +55,7 @@ export default function WorldAthleticsPage() {
       conclusionText: "Being designated as a World Athletics Level D competition ensures that the Nordic High Jump Challenge meets international standards and provides athletes with meaningful competition that can advance their careers and rankings on the world stage."
     },
     no: {
+      backBtn: "← Tilbake til forsiden",
       title: "World Athletics Level D",
       subtitle: "Offisiell konkurransestatus",
       intro: "Nordic High Jump Challenge er en World Athletics Level D-konkurranse, noe som betyr at det er et offisielt anerkjent internasjonalt friidrettsstevne.",
@@ -80,6 +83,7 @@ export default function WorldAthleticsPage() {
       conclusionText: "Å være utpekt som en World Athletics Level D-konkurranse sikrer at Nordic High Jump Challenge oppfyller internasjonale standarder og gir utøvere meningsfull konkurranse som kan fremme deres karriere og rangeringer på verdensscenen."
     },
     sv: {
+      backBtn: "← Tillbaka till startsidan",
       title: "World Athletics Level D",
       subtitle: "Officiell tävlingsstatus",
       intro: "Nordic High Jump Challenge är en World Athletics Level D-tävling, vilket betyder att det är ett officiellt erkänt internationellt friidrottsmöte.",
@@ -112,15 +116,14 @@ export default function WorldAthleticsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Back to Home Button - Fixed Position */}
-      <div className="fixed top-4 left-4 z-10">
-        <a 
+      {/* Back to Home Button*/}
+      <div className="fixed top-4 left-4 z-20">
+        <Link 
           href="/"
-          className="inline-flex items-center bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold text-gray-700 hover:bg-gray-50"
+          className="inline-flex items-center bg-white text-gray-700 px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold hover:bg-gray-50"
         >
-          <span className="mr-2">←</span>
-          {language === 'en' ? 'Home' : 'Hjem'}
-        </a>
+          ← {t.backBtn.replace('← ', '')}
+        </Link>
       </div>
 
       {/* Language Toggle */}

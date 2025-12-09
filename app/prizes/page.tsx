@@ -123,13 +123,15 @@ export default function PrizesPage() {
       </div>
 
       <div className="container mx-auto px-4 py-16">
-        {/* Back Button */}
+        {/* Back to Home Button*/}
+      <div className="fixed top-4 left-4 z-20">
         <Link 
           href="/"
-          className="inline-block mb-8 text-blue-600 hover:text-blue-800 font-semibold"
+          className="inline-flex items-center bg-white text-gray-700 px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold hover:bg-gray-50"
         >
-          {t.backBtn}
+          ← {t.backBtn.replace('← ', '')}
         </Link>
+      </div>
 
         {/* Header */}
         <div className="text-center mb-12">
