@@ -52,7 +52,8 @@ export default function WorldAthleticsPage() {
       standards4: "Competition must be open to international athletes",
       standards5: "Must meet facility and equipment certification requirements",
       conclusionTitle: "Why It Matters",
-      conclusionText: "Being designated as a World Athletics Level D competition ensures that the Nordic High Jump Challenge meets international standards and provides athletes with meaningful competition that can advance their careers and rankings on the world stage."
+      conclusionText: "Being designated as a World Athletics Level D competition ensures that the Nordic High Jump Challenge meets international standards and provides athletes with meaningful competition that can advance their careers and rankings on the world stage.",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       backBtn: "← Tilbake til forsiden",
@@ -80,7 +81,8 @@ export default function WorldAthleticsPage() {
       standards4: "Konkurranser må være åpen for internasjonale utøvere",
       standards5: "Må oppfylle krav til anlegg- og utstyrssertifisering",
       conclusionTitle: "Hvorfor det betyr noe",
-      conclusionText: "Å være utpekt som en World Athletics Level D-konkurranse sikrer at Nordic High Jump Challenge oppfyller internasjonale standarder og gir utøvere meningsfull konkurranse som kan fremme deres karriere og rangeringer på verdensscenen."
+      conclusionText: "Å være utpekt som en World Athletics Level D-konkurranse sikrer at Nordic High Jump Challenge oppfyller internasjonale standarder og gir utøvere meningsfull konkurranse som kan fremme deres karriere og rangeringer på verdensscenen.",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
       backBtn: "← Tillbaka till startsidan",
@@ -108,7 +110,8 @@ export default function WorldAthleticsPage() {
       standards4: "Tävlingen måste vara öppen för internationella idrottare",
       standards5: "Måste uppfylla krav på anläggnings- och utrustningscertifiering",
       conclusionTitle: "Varför det spelar roll",
-      conclusionText: "Att vara utsedd som en World Athletics Level D-tävling säkerställer att Nordic High Jump Challenge uppfyller internationella standarder och ger idrottare meningsfull tävling som kan främja deras karriärer och rankning på världsscenen."
+      conclusionText: "Att vara utsedd som en World Athletics Level D-tävling säkerställer att Nordic High Jump Challenge uppfyller internationella standarder och ger idrottare meningsfull tävling som kan främja deras karriärer och rankning på världsscenen.",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
@@ -280,6 +283,15 @@ export default function WorldAthleticsPage() {
           </p>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-400">
+            {t.footer}
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

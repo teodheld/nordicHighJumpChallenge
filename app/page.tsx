@@ -96,7 +96,7 @@ export default function Home() {
       levelText: "Officiellt godkänt möte",
       prizeTitle: "💰 Kontantpriser",
       prizeText: "Klicka för mer info",
-      footer: "© 2025 Nordic High Jump Challenge. Alla rättigheter förbehållna."
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
