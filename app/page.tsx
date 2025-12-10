@@ -38,7 +38,7 @@ export default function Home() {
       formatText: "The format is simple: two meets, combined results count. Cash prizes will be awarded and the stage is set for personal bests, season's bests, and crowd-pleasing excitement right up to the final attempt.",
       invitationTitle: "Invitation Only",
       invitationText: "This is not an open-entry event - participation is by invitation only. Interested in being considered? Send us an email:",
-      readyText: "Ready to fly? Nordic High Jump Challenge - Mariestad, July 12 → Bergen, July 16. Two cities. Two nights. One Nordic champion list.",
+      readyText: "Ready to fly? Nordic High Jump Challenge - Mariestad, July 12 → Bergen, July 16. Two cities. Two nights. One Nordic champion.",
       moreInfo: "More information about the event will be announced soon.",
       date1Title: "🗓️ MAIFhoppet, Sweden",
       date1Text: "July 12, 2026",
@@ -62,7 +62,7 @@ export default function Home() {
       formatText: "Formatet er enkelt: to stevner, og sammenlagtresultatene teller. Det deles ut pengepremier og scenen er satt for personlige rekorder, årsbester og publikumsvennlig spenning helt til siste forsøk.",
       invitationTitle: "Kun på invitasjon",
       invitationText: "Dette er ikke et åpnet stevne – deltakelse skjer kun via invitasjon. Interessert i å bli vurdert? Send oss en e-post:",
-      readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinnerliste.",
+      readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinner.",
       moreInfo: "Mer informasjon om arrangementet kommer snart.",
       date1Title: "🗓️ MAIFhoppet, Sverige",
       date1Text: "12. juli 2026",
@@ -86,7 +86,7 @@ export default function Home() {
       formatText: "Formatet är enkelt: två möten, sammanlagda resultat räknas. Kontantpriser kommer att delas ut och scenen är satt för personliga rekord, säsongens bästa och publikvänlig spänning ända fram till sista försöket.",
       invitationTitle: "Endast på inbjudan",
       invitationText: "Detta är inte en öppen tävling – deltagande sker endast via inbjudan. Intresserad av att bli övervägd? Skicka ett e-postmeddelande till oss:",
-      readyText: "Redo att flyga? Nordic High Jump Challenge – Mariestad, 12 juli → Bergen, 16 juli. Två städer. Två kvällar. En nordisk vinnarlista.",
+      readyText: "Redo att flyga? Nordic High Jump Challenge – Mariestad, 12 juli → Bergen, 16 juli. Två städer. Två kvällar. En nordisk vinnar.",
       moreInfo: "Mer information om evenemanget kommer att meddelas snart.",
       date1Title: "🗓️ MAIFhoppet, Sverige",
       date1Text: "12 juli 2026",
@@ -167,7 +167,7 @@ export default function Home() {
       {/* Key Info Cards */}
       <section className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <Link href="/mariestad">
+          <Link href="/maif-hoppet">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {t.date1Title}
@@ -176,7 +176,7 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/bergen">
+          <Link href="/fana-hoppet">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {t.date2Title}

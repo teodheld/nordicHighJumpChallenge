@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-export default function MariestadPage() {
+export default function FanaPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   // Start with default language (no localStorage check initially)
   const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
@@ -27,21 +27,22 @@ export default function MariestadPage() {
   };
   
   const images = [
-    '/images/mariestad1.jpeg',
-    '/images/mariestad2.jpeg',
-    '/images/mariestad3.jpeg'
+    '/images/fana1.jpeg',
+    '/images/fana2.jpeg',
+    '/images/fana3.jpeg',
+    '/images/fana4.jpeg'
   ];
 
-  const content = {
+   const content = {
     en: {
-      title: "MAIFhoppet",
-      subtitle: "A part of Nordic High Jump Challenge",
+      title: "Fanahoppet",
+      subtitle: "A part of the Nordic High Jump Challenge",
       competitionTitle: "About the Competition",
-      competitionText: "MAIFhoppet is part of the Nordic High Jump Challenge, a prestigious competition series bringing together the best high jumpers from the Nordic countries. The competition offers a unique opportunity to witness international athletics talent in a classic sports environment.",
-      arenaTitle: "Arena: Högelid Idrottsplats",
-      arenaText: "Högelid Idrottsplats is a classic sports facility located in the heart of Mariestad. The venue offers excellent conditions for athletics competitions with modern equipment and good spectator facilities. The atmospheric environment creates a perfect arena for elite-level high jumping.",
-      cityTitle: "About Mariestad",
-      cityText: "Mariestad is a charming city on the shores of Lake Vänern with a rich history dating back to 1583. The city is known for its well-preserved wooden town, impressive cathedral, and vibrant harbor environment. With its picturesque streets, cozy cafés, and beautiful location by Sweden's largest lake, Mariestad offers a perfect blend of culture, history, and nature experiences.",
+      competitionText: "Fanahoppet is one of the key events in the Nordic High Jump Challenge, attracting top high jump athletes from across the Nordic countries. The competition is known for its professional setup, strong athletic level, and a supportive local crowd.",
+      arenaTitle: "Arena: Fana Stadion",
+      arenaText: "Fana Stadion is one of Norway's premier athletics arenas, located in the Fana district of Bergen. The stadium features modern facilities, a high-quality running track, solid jumping areas, and a beautiful setting. The venue is frequently used for elite competitions and national championships",
+      cityTitle: "About Bergen",
+      cityText: "Bergen, known as the Gateway to the Fjords, is Norway's second-largest city. Famous for its historic Bryggen wharf, vibrant cultural scene, and surrounding mountains, Bergen offers a unique blend of nature and urban life. The city's coastal climate and energetic atmosphere make it an inspiring location for major sporting events.",
       contactTitle: "Contact",
       contactText: "For more information, contact us via email:",
       meetingDirector: "Meeting Director",
@@ -53,14 +54,17 @@ export default function MariestadPage() {
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
-      title: "MAIFhoppet",
+      title: "Fanahoppet",
       subtitle: "En del av Nordic High Jump Challenge",
       competitionTitle: "Om stevnet",
-      competitionText: "MAIFhoppet er en del av Nordic High Jump Challenge, en prestisjetung konkurranseserie som samler de beste høydehopperne fra de nordiske landene. Stevnet tilbyr en unik mulighet til å se internasjonal friidrettstalent i et klassisk idrettsmiljø.",
-      arenaTitle: "Arena: Högelid Idrottsplats",
-      arenaText: "Högelid Idrottsplats er et klassisk idrettsanlegg som ligger i hjertet av Mariestad. Anlegget tilbyr utmerkede forhold for friidrettsstevner med moderne utstyr og gode tilskuerfasiliteter. Det atmosfæriske miljøet skaper en perfekt arena for høydehopp på elitenivå.",
-      cityTitle: "Om Mariestad",
-      cityText: "Mariestad er en sjarmerende by ved Vänerns strand med en rik historie som strekker seg tilbake til 1583. Byen er kjent for sin velholdte treby, den imponerende domkirken og det livlige havnemiljøet. Med sine pittoreske gater, koselige kafeer og vakre beliggenhet ved Sveriges største innsjø, tilbyr Mariestad en perfekt blanding av kultur, historie og naturopplevelser.",
+      competitionText:
+        "Fanahoppet er et av hovedstevnene i Nordic High Jump Challenge og samler noen av de beste høydehopperne i Norden. Stevnet er kjent for sitt profesjonelle opplegg, høyt sportslig nivå og et engasjert lokalt publikum.",
+      arenaTitle: "Arena: Fana Stadion",
+      arenaText:
+        "Fana Stadion er en av Norges beste friidrettsarenaer, plassert i Fana bydel i Bergen. Stadionet har moderne fasiliteter, en høykvalitets løpebane, solide hoppområder og en vakker beliggenhet. Anlegget brukes ofte til elitekonkurranser og nasjonale mesterskap.",
+      cityTitle: "Om Bergen",
+      cityText:
+        "Bergen, kjent som inngangsporten til fjordene, er Norges nest største by. Med den historiske Bryggen, et pulserende kulturliv og et unikt landskap av fjell og hav, kombinerer byen natur og byliv på en helt spesiell måte. Bergens energi og atmosfære gjør den til en flott vert for store idrettsarrangementer.",
       contactTitle: "Kontakt",
       contactText: "For mer informasjon, kontakt oss via e-post:",
       meetingDirector: "Stevneleder",
@@ -72,14 +76,17 @@ export default function MariestadPage() {
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
-      title: "MAIFhoppet",
+      title: "Fanahoppet",
       subtitle: "En del av Nordic High Jump Challenge",
       competitionTitle: "Om tävlingen",
-      competitionText: "MAIFhoppet är en del av Nordic High Jump Challenge, en prestigefylld tävlingsserie som samlar de bästa höjdhopparna från Norden. Tävlingen erbjuder en unik möjlighet att se internationell friidrottstalang i en klassisk idrottsmiljö.",
-      arenaTitle: "Arena: Högelid Idrottsplats",
-      arenaText: "Högelid Idrottsplats är en klassisk idrottsanläggning belägen i hjärtat av Mariestad. Anläggningen erbjuder utmärkta förutsättningar för friidrottstävlingar med modern utrustning och goda publikmöjligheter. Den atmosfäriska miljön skapar en perfekt arena för höjdhopp på elitnivå.",
-      cityTitle: "Om Mariestad",
-      cityText: "Mariestad är en charmig stad vid Vänerns strand med en rik historia som sträcker sig tillbaka till 1583. Staden är känd för sin välbevarade trästad, den imponerande domkyrkan och sin livliga hamnmiljö. Med sina pittoreska gator, mysiga kaféer och vackra läge vid Sveriges största sjö, erbjuder Mariestad en perfekt blandning av kultur, historia och naturupplevelser.",
+      competitionText:
+        "Fanahoppet är en av huvudtävlingarna i Nordic High Jump Challenge och lockar några av Nordens bästa höjdhoppare. Tävlingen är känd för sin professionella organisation, höga nivå och en entusiastisk lokal publik.",
+      arenaTitle: "Arena: Fana Stadion",
+      arenaText:
+        "Fana Stadion är en av Norges främsta friidrottsarenor, belägen i stadsdelen Fana i Bergen. Stadion har moderna faciliteter, en löpbana av hög kvalitet, bra hoppområden och ett vackert läge. Anläggningen används ofta för elittävlingar och nationella mästerskap.",
+      cityTitle: "Om Bergen",
+      cityText:
+        "Bergen, även kallad porten till fjordarna, är Norges näst största stad. Känd för Bryggen, sitt rika kulturliv och de omgivande fjällen, erbjuder staden en unik kombination av natur och stadsmiljö. Bergens livliga atmosfär gör det till en perfekt plats för stora idrottsevenemang.",
       contactTitle: "Kontakt",
       contactText: "För mer information, kontakta oss via e-post:",
       meetingDirector: "Tävlingsledare",
@@ -195,47 +202,49 @@ export default function MariestadPage() {
           </div>
 
           {/* Contact Section */}
-          <div className="mb-8 bg-gray-50 p-6 rounded-lg">
+          <div className="flex flex-col items-center mb-8 bg-gray-50 p-6 rounded-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.contactTitle}</h2>
             
-            {/* Meeting Director */}
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">{t.meetingDirector}</h3>
-              <p className="text-lg text-gray-700 mb-1">
-                <strong>{t.name}:</strong> Jon-Inge Heldal
-              </p>
-              <p className="text-lg text-gray-700 mb-1">
-                <strong>{t.email}:</strong>{' '}
-                <a href="mailto:friidrett@fanail.no" className="text-blue-600 hover:underline">
-                  friidrett@fanail.no
-                </a>
-              </p>
-              <p className="text-lg text-gray-700">
-                <strong>{t.telephone}:</strong>{' '}
-                <a href="tel:+4792049315" className="text-blue-600 hover:underline">
-                  +47 92049315
-                </a>
-              </p>
-            </div>
+            <div className="flex justify-center items-center gap-8 mb-8 flex-wrap"> 
+              {/* Meeting Director */}
+              <div className="bg-gray-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t.meetingDirector}</h3>
+                <p className="text-lg text-gray-700 mb-1">
+                  <strong>{t.name}:</strong> Jon-Inge Heldal
+                </p>
+                <p className="text-lg text-gray-700 mb-1">
+                  <strong>{t.email}:</strong>{' '}
+                  <a href="mailto:friidrett@fanail.no" className="text-blue-600 hover:underline">
+                    friidrett@fanail.no
+                  </a>
+                </p>
+                <p className="text-lg text-gray-700">
+                  <strong>{t.telephone}:</strong>{' '}
+                  <a href="tel:+4792049315" className="text-blue-600 hover:underline">
+                    +47 92049315
+                  </a>
+                </p>
+              </div>
 
-            {/* Athletes' Liaison */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">{t.athletesLiaison}</h3>
-              <p className="text-lg text-gray-700 mb-1">
-                <strong>{t.name}:</strong> Silvia Popa
-              </p>
-              <p className="text-lg text-gray-700 mb-1">
-                <strong>{t.email}:</strong>{' '}
-                <a href="mailto:silvv2323@gmail.com" className="text-blue-600 hover:underline">
-                  silvv2323@gmail.com
-                </a>
-              </p>
-              <p className="text-lg text-gray-700">
-                <strong>{t.telephone}:</strong>{' '}
-                <a href="tel:+46765898761" className="text-blue-600 hover:underline">
-                  +46 765898761
-                </a>
-              </p>
+              {/* Athletes' Liaison */}
+              <div className = "bg-gray-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t.athletesLiaison}</h3>
+                <p className="text-lg text-gray-700 mb-1">
+                  <strong>{t.name}:</strong> Silvia Popa
+                </p>
+                <p className="text-lg text-gray-700 mb-1">
+                  <strong>{t.email}:</strong>{' '}
+                  <a href="mailto:silvv2323@gmail.com" className="text-blue-600 hover:underline">
+                    silvv2323@gmail.com
+                  </a>
+                </p>
+                <p className="text-lg text-gray-700">
+                  <strong>{t.telephone}:</strong>{' '}
+                  <a href="tel:+46765898761" className="text-blue-600 hover:underline">
+                    +46 765898761
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
