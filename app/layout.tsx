@@ -15,10 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Nordic High Jump Challenge",
-  description: "World Athletics Level D competition - Mariestad & Bergen 2026",
+  description: "World Athletics Level D competition - MAIF-hopppet & Fana-hoppet 2026",
 
   keywords: ["nordic high jump", "nordichighjump", "challenge", "sports", 
-    "athlete", "bergen", "mariesdtad", "fanahoppet", "maifhoppet"]
+    "athlete", "bergen", "mariestad", "fanahoppet", "maifhoppet", "high jump", "nordic high jump challenge",
+    "MAIFhoppet", "Fanahoppet", "MAIF-hoppet", "Fana-hoppet"]
 };
 
 export default function RootLayout({

@@ -130,24 +130,24 @@ export default function MariestadPage() {
       <div className="bg-white shadow-xl overflow-hidden">
         {/* Header */}
         <div className="bg-blue-600 text-white p-8 text-center">
-          <div className="text-5xl mb-4">🏃‍♂️</div>
+          <div className="text-5xl mb-4">🏆</div>
           <h1 className="text-4xl font-bold mb-2">{t.title}</h1>
           <p className="text-xl">{t.subtitle}</p>
         </div>
 
         {/* Image Slideshow */}
-        <div className="relative h-96 bg-gray-200">
+        <div className="relative bg-white-100">
           {images.map((image, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                currentSlide === index ? 'opacity-100' : 'opacity-0'
+              className={`transition-opacity duration-500 ${
+                currentSlide === index ? 'opacity-100' : 'opacity-0 absolute inset-0'
               }`}
             >
               <img
                 src={image}
                 alt={`Mariestad ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain max-h-[500px]"
               />
             </div>
           ))}
@@ -159,13 +159,14 @@ export default function MariestadPage() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition ${
-                  currentSlide === index ? 'bg-white' : 'bg-white/50'
+                  currentSlide === index ? 'bg-blue-600' : 'bg-gray-400'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
+
 
         {/* Content */}
         <div className="p-8">
@@ -238,6 +239,7 @@ export default function MariestadPage() {
             </div>
           </div>
         </div>
+
           {/* Footer */}
           <footer className="bg-gray-900 text-white py-8">
             <div className="container mx-auto px-4 text-center">
@@ -246,6 +248,7 @@ export default function MariestadPage() {
               </p>
             </div>
           </footer>
+          
       </div>
     </div>
   );
