@@ -4,47 +4,43 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function PrizesPage() {
-  // Start with default language (no localStorage check initially)
-    const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
-    const [isClient, setIsClient] = useState(false);
-  
-    // Load saved language after component mounts (client-side only)
-    useEffect(() => {
-      setIsClient(true);
-      const saved = localStorage.getItem('preferredLanguage');
-      if (saved && (saved === 'en' || saved === 'no' || saved === 'sv')) {
-        setLanguage(saved as 'en' | 'no' | 'sv');
-      }
-    }, []);
-  
-    // Save language when it changes
-    const handleLanguageChange = (newLang: 'en' | 'no' | 'sv') => {
-      setLanguage(newLang);
-      if (isClient) {
-        localStorage.setItem('preferredLanguage', newLang);
-      }
-    };
+  const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const saved = localStorage.getItem('preferredLanguage');
+    if (saved && (saved === 'en' || saved === 'no' || saved === 'sv')) {
+      setLanguage(saved as 'en' | 'no' | 'sv');
+    }
+  }, []);
+
+  const handleLanguageChange = (newLang: 'en' | 'no' | 'sv') => {
+    setLanguage(newLang);
+    if (isClient) {
+      localStorage.setItem('preferredLanguage', newLang);
+    }
+  };
 
   const content = {
     en: {
       backBtn: "← Back to Home",
       title: "Prize Money",
       subtitle: "Nordic High Jump Challenge 2026",
-      totalPrize: "Total prize pool for all events in both competitions is €6,000",
-      bonusPrize: "A bonus prize will be awarded to the overall winner of the Nordic High Jump Challenge for men and women.",
+      totalPrize: "Total prize pool for all events across both competitions is €3,000",
+      bonusPrize: "A bonus prize will be awarded to the overall winner of the Nordic High Jump Challenge.",
       distributionTitle: "Prize Money Distribution",
       distributionSubtitle: "Prize money for each individual competition will be distributed as follows:",
       perMeet: "Per competition/meet: €1,500",
       championTitle: "Nordic High Jump Champion",
       championSubtitle: "At the end of the tour, only one true champion will remain.",
       championText1: "The overall winner will be crowned by combining each athlete's best heights from the two competitions.",
-      championText2: "The highest-ranked man and woman across both meets win the main titles:",
+      championText2: "The highest-ranked man across both meets wins the main title:",
       kingTitle: "Nordic High Jump King",
-      queenTitle: "Nordic High Jump Queen",
       formatTitle: "Competition Format",
       formatText1: "The Nordic High Jump Challenge consists of two high jump competitions in Mariestad (July 12) and Bergen (July 16). The same athletes compete in both competitions, and the overall standings are determined by combining each athlete's best cleared height from the two competitions.",
-      formatText2: "The highest-ranked man and woman across both competitions will be crowned Nordic High Jump King and Nordic High Jump Queen.",
-      formatText3: "In addition, each meet has its own individual results and prize money: the top 5 men and top 5 women in each competition will receive prize money based on their placement in that meet.",
+      formatText2: "The highest-ranked man across both competitions will be crowned Nordic High Jump King.",
+      formatText3: "In addition, each meet has its own individual results and prize money: the top 5 men in each competition will receive prize money based on their placement in that meet.",
       contactTitle: "Questions?",
       contactText: "For more information about prizes and competition rules, contact us at:",
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
@@ -53,21 +49,20 @@ export default function PrizesPage() {
       backBtn: "← Tilbake til forsiden",
       title: "Premiepenger",
       subtitle: "Nordic High Jump Challenge 2026",
-      totalPrize: "Total premiesum for alle øvelser i begge stevnene er €6,000",
-      bonusPrize: "En tilleggspremie vil bli tildelt den sammenlagte vinneren av Nordic High Jump Challenge for menn og kvinner.",
+      totalPrize: "Total premiesum for alle øvelser i begge stevnene er €3,000",
+      bonusPrize: "En tilleggspremie vil bli tildelt den samlede vinneren av Nordic High Jump Challenge.",
       distributionTitle: "Fordeling av premiepenger",
       distributionSubtitle: "Premiepengene for hver enkelt konkurranse vil bli fordelt som følger:",
       perMeet: "Per arrangement/møte: €1,500",
       championTitle: "Nordisk mester i høydehopp",
       championSubtitle: "På slutten av turneringen vil det bare være én ekte mester igjen.",
       championText1: "Den samlede vinneren vil bli kåret ved å kombinere hver utøvers beste høyder fra de to konkurransene.",
-      championText2: "Den høyest rangerte mannen og kvinnen i begge stevnene vinner hovedtitlene:",
+      championText2: "Den høyest rangerte mannen i begge stevnene vinner hovedtittelen:",
       kingTitle: "Nordisk høydehoppkonge",
-      queenTitle: "Nordisk høydehoppdronning",
       formatTitle: "Konkurranseformat",
       formatText1: "Nordisk høydehoppkonkurranse består av to høydehoppkonkurranser i Mariestad (12. juli) og Bergen (16. juli). De samme utøverne konkurrerer i begge konkurransene, og den samlede stillingen avgjøres ved å kombinere hver utøvers beste klarede høyde fra de to konkurransene.",
-      formatText2: "Den høyest rangerte mannen og kvinnen i begge konkurransene vil bli kronet til nordisk høydehoppkonge og nordisk høydehoppdronning.",
-      formatText3: "I tillegg har hvert stevne sine egne individuelle resultater og premiepenger: de 5 beste mennene og de 5 beste kvinnene i hver konkurranse vil motta premiepenger basert på plasseringen deres i det stevnet.",
+      formatText2: "Den høyest rangerte mannen i begge konkurransene vil bli kronet til nordisk høydehoppkonge.",
+      formatText3: "I tillegg har hvert stevne sine egne individuelle resultater og premiepenger: de 5 beste mennene i hver konkurranse vil motta premiepenger basert på plasseringen deres i det stevnet.",
       contactTitle: "Spørsmål?",
       contactText: "For mer informasjon om premier og konkurranseregler, kontakt oss på:",
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
@@ -76,21 +71,20 @@ export default function PrizesPage() {
       backBtn: "← Tillbaka till startsidan",
       title: "Prispengar",
       subtitle: "Nordic High Jump Challenge 2026",
-      totalPrize: "Total prispott för alla grenar i båda tävlingarna är €6,000",
-      bonusPrize: "Ett bonuspris kommer att tilldelas den sammanlagda vinnaren av Nordic High Jump Challenge för män och kvinnor.",
+      totalPrize: "Total prispott för alla grenar i båda tävlingarna är €3,000",
+      bonusPrize: "Ett bonuspris kommer att tilldelas den sammanlagda vinnaren av Nordic High Jump Challenge.",
       distributionTitle: "Fördelning av prispengar",
       distributionSubtitle: "Prispengar för varje enskild tävling kommer att fördelas enligt följande:",
       perMeet: "Per tävling/möte: €1,500",
       championTitle: "Nordisk mästare i höjdhopp",
       championSubtitle: "I slutet av tävlingsserien kommer endast en sann mästare att kvarstå.",
       championText1: "Den sammanlagda vinnaren kommer att krönas genom att kombinera varje idrottares bästa höjder från de två tävlingarna.",
-      championText2: "Den högst rankade mannen och kvinnan över båda mötena vinner huvudtitlarna:",
+      championText2: "Den högst rankade mannen över båda mötena vinner huvudtiteln:",
       kingTitle: "Nordisk höjdhoppskung",
-      queenTitle: "Nordisk höjdhoppsdrottning",
       formatTitle: "Tävlingsformat",
       formatText1: "Nordic High Jump Challenge består av två höjdhoppstävlingar i Mariestad (12 juli) och Bergen (16 juli). Samma idrottare tävlar i båda tävlingarna, och den sammanlagda ställningen bestäms genom att kombinera varje idrottares bästa klarade höjd från de två tävlingarna.",
-      formatText2: "Den högst rankade mannen och kvinnan över båda tävlingarna kommer att krönas till nordisk höjdhoppskung och nordisk höjdhoppsdrottning.",
-      formatText3: "Dessutom har varje möte sina egna individuella resultat och prispengar: de 5 bästa männen och de 5 bästa kvinnorna i varje tävling kommer att få prispengar baserat på deras placering i det mötet.",
+      formatText2: "Den högst rankade mannen över båda tävlingarna kommer att krönas till nordisk höjdhoppskung.",
+      formatText3: "Dessutom har varje möte sina egna individuella resultat och prispengar: de 5 bästa männen i varje tävling kommer att få prispengar baserat på deras placering i det mötet.",
       contactTitle: "Frågor?",
       contactText: "För mer information om priser och tävlingsregler, kontakta oss på:",
       footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
@@ -123,15 +117,15 @@ export default function PrizesPage() {
       </div>
 
       <div className="container mx-auto px-4 py-16">
-        {/* Back to Home Button*/}
-      <div className="fixed top-4 left-4 z-20">
-        <Link 
-          href="/"
-          className="inline-flex items-center bg-white text-gray-700 px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold hover:bg-gray-50"
-        >
-          ← {t.backBtn.replace('← ', '')}
-        </Link>
-      </div>
+        {/* Back to Home Button */}
+        <div className="fixed top-4 left-4 z-20">
+          <Link
+            href="/"
+            className="inline-flex items-center bg-white text-gray-700 px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold hover:bg-gray-50"
+          >
+            ← {t.backBtn.replace('← ', '')}
+          </Link>
+        </div>
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -163,10 +157,10 @@ export default function PrizesPage() {
           <p className="text-center text-gray-600 mb-8 text-lg">
             {t.distributionSubtitle}
           </p>
-          
+
           <div className="grid md:grid-cols-5 gap-4 mb-6">
             {prizes.map((prize) => (
-              <div 
+              <div
                 key={prize.place}
                 className={`bg-gradient-to-br ${prize.color} p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition`}
               >
@@ -201,18 +195,12 @@ export default function PrizesPage() {
             <p className="text-gray-700 text-lg leading-relaxed mb-6">
               {t.championText2}
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-6 rounded-lg text-center text-white">
+
+            <div className="flex justify-center mt-8">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-8 rounded-lg text-center text-white max-w-xs w-full">
                 <div className="text-5xl mb-3">🤴</div>
                 <h3 className="text-2xl font-bold">
                   {t.kingTitle}
-                </h3>
-              </div>
-              <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-6 rounded-lg text-center text-white">
-                <div className="text-5xl mb-3">👸</div>
-                <h3 className="text-2xl font-bold">
-                  {t.queenTitle}
                 </h3>
               </div>
             </div>
