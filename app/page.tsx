@@ -59,7 +59,9 @@ export default function Home() {
       levelText: "Officially approved meeting",
       prizeTitle: "💰 Cash Prizes",
       prizeText: "Click for more info",
-      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
+      athletesTitle: "🏃 Athletes",
+      athletesText: "Meet the competitors",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       title: "Nordic High Jump Challenge",
@@ -93,7 +95,9 @@ export default function Home() {
       levelText: "Offisielt godkjent stevne",
       prizeTitle: "💰 Pengepremier",
       prizeText: "Trykk for mer info",
-      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
+      athletesTitle: "🏃 Utøvere",
+      athletesText: "Møt deltakerne",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
       title: "Nordic High Jump Challenge",
@@ -127,7 +131,9 @@ export default function Home() {
       levelText: "Officiellt godkänt möte",
       prizeTitle: "💰 Kontantpriser",
       prizeText: "Klicka för mer info",
-      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
+      athletesTitle: "🏃 Idrottare",
+      athletesText: "Möt deltagarna",
+      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
@@ -204,7 +210,7 @@ export default function Home() {
 
       {/* Key Info Cards */}
       <section className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
           <Link href="/maif-hoppet">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -238,6 +244,15 @@ export default function Home() {
                 {t.prizeTitle}
               </h3>
               <p className="text-gray-600">{t.prizeText}</p>
+            </div>
+          </Link>
+
+          <Link href="/athletes">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition cursor-pointer transform hover:scale-105 h-full">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {t.athletesTitle}
+              </h3>
+              <p className="text-gray-600">{t.athletesText}</p>
             </div>
           </Link>
         </div>
@@ -307,7 +322,7 @@ export default function Home() {
             <img
               src={sponsors[1].image}
               alt={sponsors[1].name}
-              className="h-20 w-auto object-contain"
+              className="h-40 w-auto object-contain"
             />
 
             {/* Vänerport - centered, larger, with expandable text in its own div */}
