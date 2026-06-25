@@ -7,6 +7,7 @@ export default function Home() {
   // Start with default language (no localStorage check initially)
   const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
   const [isClient, setIsClient] = useState(false);
+  const [sponsorTextExpanded, setSponsorTextExpanded] = useState(false);
 
   // Load saved language after component mounts (client-side only)
   useEffect(() => {
@@ -38,6 +39,16 @@ export default function Home() {
       formatText: "The format is simple: two meets, combined results count. Cash prizes will be awarded and the stage is set for personal bests, season's bests, and crowd-pleasing excitement right up to the final attempt.",
       invitationTitle: "Invitation Only",
       invitationText: "This is not an open-entry event - participation is by invitation only. Interested in being considered? Send us an email:",
+      sponsorsTitle: "Sponsors & Co-organizers",
+      sponsorsSubtitle: "Proud sponsors and co-organizers of the event",
+      sponsor1Name: "Vänerport",
+      sponsor1Desc: "Vänerport is an important partner and main sponsor of the Nordic High Jump Challenge. Through their commitment, they provide free accommodation for the athletes throughout their stay in Mariestad. This support is extremely valuable to the event and helps give the participants great conditions both on and off the competition arena.",
+      sponsor2Name: "Norsk Friidrett Hordaland",
+      sponsor2Desc: "Norsk Friidrett Hordaland is a co-organizer of the Nordic High Jump Challenge, contributing local expertise and helping run the event in Bergen.",
+      sponsor3Name: "Länsförsäkringar Skaraborg",
+      sponsor3Desc: "Länsförsäkringar Skaraborg is one of the sponsors of the Nordic High Jump Challenge, helping make the event possible through their local support in the Skaraborg region.",
+      readMore: "Read more",
+      readLess: "Read less",
       readyText: "Ready to fly? Nordic High Jump Challenge - Mariestad, July 12 → Bergen, July 16. Two cities. Two nights. One Nordic champion.",
       moreInfo: "More information about the event will be announced soon.",
       date1Title: "🗓️ MAIFhoppet, Sweden",
@@ -48,7 +59,7 @@ export default function Home() {
       levelText: "Officially approved meeting",
       prizeTitle: "💰 Cash Prizes",
       prizeText: "Click for more info",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       title: "Nordic High Jump Challenge",
@@ -62,6 +73,16 @@ export default function Home() {
       formatText: "Formatet er enkelt: to stevner, og sammenlagtresultatene teller. Det deles ut pengepremier og scenen er satt for personlige rekorder, årsbester og publikumsvennlig spenning helt til siste forsøk.",
       invitationTitle: "Kun på invitasjon",
       invitationText: "Dette er ikke et åpnet stevne – deltakelse skjer kun via invitasjon. Interessert i å bli vurdert? Send oss en e-post:",
+      sponsorsTitle: "Sponsorer og medarrangører",
+      sponsorsSubtitle: "Stolte sponsorer og medarrangører av arrangementet",
+      sponsor1Name: "Vänerport",
+      sponsor1Desc: "Vänerport er en viktig samarbeidspartner og hovedsponsor for Nordic High Jump Challenge. Gjennom sitt engasjement bidrar de med gratis innlosjering for utøverne under hele oppholdet i Mariestad. Denne støtten er svært verdifull for arrangementet og gjør det mulig å gi deltakerne gode rammer både på og utenfor konkurransearenaen.",
+      sponsor2Name: "Norsk Friidrett Hordaland",
+      sponsor2Desc: "Norsk Friidrett Hordaland er medarrangør av Nordic High Jump Challenge og bidrar med lokal kompetanse og gjennomføring av arrangementet i Bergen.",
+      sponsor3Name: "Länsförsäkringar Skaraborg",
+      sponsor3Desc: "Länsförsäkringar Skaraborg er en av sponsorene til Nordic High Jump Challenge og bidrar til å gjøre arrangementet mulig gjennom sin lokale støtte i Skaraborg-regionen.",
+      readMore: "Les mer",
+      readLess: "Vis mindre",
       readyText: "Klar til å fly? Nordic High Jump Challenge – Mariestad, 12. juli → Bergen, 16. juli. To byer. To kvelder. Én nordisk vinner.",
       moreInfo: "Mer informasjon om arrangementet kommer snart.",
       date1Title: "🗓️ MAIFhoppet, Sverige",
@@ -72,7 +93,7 @@ export default function Home() {
       levelText: "Offisielt godkjent stevne",
       prizeTitle: "💰 Pengepremier",
       prizeText: "Trykk for mer info",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
       title: "Nordic High Jump Challenge",
@@ -86,6 +107,16 @@ export default function Home() {
       formatText: "Formatet är enkelt: två möten, sammanlagda resultat räknas. Kontantpriser kommer att delas ut och scenen är satt för personliga rekord, säsongens bästa och publikvänlig spänning ända fram till sista försöket.",
       invitationTitle: "Endast på inbjudan",
       invitationText: "Detta är inte en öppen tävling – deltagande sker endast via inbjudan. Intresserad av att bli övervägd? Skicka ett e-postmeddelande till oss:",
+      sponsorsTitle: "Sponsorer och medarrangörer",
+      sponsorsSubtitle: "Stolta sponsorer och medarrangörer av evenemanget",
+      sponsor1Name: "Vänerport",
+      sponsor1Desc: "Vänerport är en viktig samarbetspartner och huvudsponsor för Nordic High Jump Challenge. Genom sitt engagemang bidrar de med gratis boende för idrottarna under hela vistelsen i Mariestad. Detta stöd är mycket värdefullt för evenemanget och gör det möjligt att ge deltagarna goda förutsättningar både på och utanför tävlingsarenan.",
+      sponsor2Name: "Norsk Friidrett Hordaland",
+      sponsor2Desc: "Norsk Friidrett Hordaland är medarrangör av Nordic High Jump Challenge och bidrar med lokal kompetens och genomförande av evenemanget i Bergen.",
+      sponsor3Name: "Länsförsäkringar Skaraborg",
+      sponsor3Desc: "Länsförsäkringar Skaraborg är en av sponsorerna för Nordic High Jump Challenge och bidrar till att göra evenemanget möjligt genom sitt lokala stöd i Skaraborgsregionen.",
+      readMore: "Läs mer",
+      readLess: "Visa mindre",
       readyText: "Redo att flyga? Nordic High Jump Challenge – Mariestad, 12 juli → Bergen, 16 juli. Två städer. Två kvällar. En nordisk vinnar.",
       moreInfo: "Mer information om evenemanget kommer att meddelas snart.",
       date1Title: "🗓️ MAIFhoppet, Sverige",
@@ -96,11 +127,18 @@ export default function Home() {
       levelText: "Officiellt godkänt möte",
       prizeTitle: "💰 Kontantpriser",
       prizeText: "Klicka för mer info",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
   const t = content[language];
+
+  // Replace image paths below with your actual sponsor logo filenames in /public/images/
+  const sponsors = [
+    { name: t.sponsor1Name, desc: t.sponsor1Desc, image: '/images/hotel.png' },
+    { name: t.sponsor2Name, desc: t.sponsor2Desc, image: '/images/norskFriidrett.png' },
+    { name: t.sponsor3Name, desc: t.sponsor3Desc, image: '/images/skaraborg.jpg' },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -120,7 +158,7 @@ export default function Home() {
       {/* Hero Section */}
       <header className="relative container mx-auto px-4 py-16 text-center overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 z-0 opacity-25"
           style={{
             backgroundImage: 'url(/images/highjump-backround.jpeg)',
@@ -129,19 +167,19 @@ export default function Home() {
             backgroundRepeat: 'no-repeat'
           }}
         />
-        
+
         {/* Content Overlay */}
         <div className="relative z-10">
           {/* Official Logos */}
           <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
-            <img 
-              src="/images/world-athletics-logo.png" 
-              alt="World Athletics" 
+            <img
+              src="/images/world-athletics-logo.png"
+              alt="World Athletics"
               className="h-24 w-24 object-contain"
             />
-            <img 
-              src="/images/european-athletics-logo.png" 
-              alt="European Athletics" 
+            <img
+              src="/images/european-athletics-logo.png"
+              alt="European Athletics"
               className="h-16 object-contain"
             />
           </div>
@@ -251,6 +289,56 @@ export default function Home() {
               friidrett@fanail.no
             </a>
           </p>
+        </div>
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-3 text-center">
+            {t.sponsorsTitle}
+          </h2>
+          <p className="text-center text-gray-600 mb-10">
+            {t.sponsorsSubtitle}
+          </p>
+
+          <div className="flex flex-col items-center justify-center gap-10">
+            {/* Norsk Friidrett Hordaland */}
+            <img
+              src={sponsors[1].image}
+              alt={sponsors[1].name}
+              className="h-20 w-auto object-contain"
+            />
+
+            {/* Vänerport - centered, larger, with expandable text in its own div */}
+            <div className="flex flex-col items-center text-center max-w-xl">
+              <img
+                src={sponsors[0].image}
+                alt={sponsors[0].name}
+                className="h-32 w-auto object-contain mb-4"
+              />
+              <p
+                className={`text-gray-700 leading-relaxed text-sm ${
+                  sponsorTextExpanded ? '' : 'line-clamp-2'
+                }`}
+              >
+                {sponsors[0].desc}
+              </p>
+              <button
+                onClick={() => setSponsorTextExpanded(!sponsorTextExpanded)}
+                className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2"
+              >
+                {sponsorTextExpanded ? t.readLess : t.readMore}
+              </button>
+            </div>
+
+            {/* Länsförsäkringar Skaraborg */}
+            <img
+              src={sponsors[2].image}
+              alt={sponsors[2].name}
+              className="h-20 w-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 

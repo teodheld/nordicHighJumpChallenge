@@ -43,7 +43,7 @@ export default function PrizesPage() {
       formatText3: "In addition, each meet has its own individual results and prize money: the top 5 men in each competition will receive prize money based on their placement in that meet.",
       contactTitle: "Questions?",
       contactText: "For more information about prizes and competition rules, contact us at:",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       backBtn: "← Tilbake til forsiden",
@@ -65,7 +65,7 @@ export default function PrizesPage() {
       formatText3: "I tillegg har hvert stevne sine egne individuelle resultater og premiepenger: de 5 beste mennene i hver konkurranse vil motta premiepenger basert på plasseringen deres i det stevnet.",
       contactTitle: "Spørsmål?",
       contactText: "For mer informasjon om premier og konkurranseregler, kontakt oss på:",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
       backBtn: "← Tillbaka till startsidan",
@@ -87,7 +87,7 @@ export default function PrizesPage() {
       formatText3: "Dessutom har varje möte sina egna individuella resultat och prispengar: de 5 bästa männen i varje tävling kommer att få prispengar baserat på deras placering i det mötet.",
       contactTitle: "Frågor?",
       contactText: "För mer information om priser och tävlingsregler, kontakta oss på:",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     }
   };
 

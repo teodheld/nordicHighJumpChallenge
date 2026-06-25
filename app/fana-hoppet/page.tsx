@@ -51,7 +51,7 @@ export default function FanaPage() {
       email: "Email",
       telephone: "Telephone",
       backBtn: "← Back to Home",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       title: "Fanahoppet",
@@ -73,7 +73,7 @@ export default function FanaPage() {
       email: "E-post",
       telephone: "Telefon",
       backBtn: "← Tilbake til forsiden",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
       title: "Fanahoppet",
@@ -95,7 +95,7 @@ export default function FanaPage() {
       email: "E-post",
       telephone: "Telefon",
       backBtn: "← Tillbaka till startsidan",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
