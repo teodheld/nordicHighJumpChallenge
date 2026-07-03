@@ -61,7 +61,7 @@ export default function Home() {
       prizeText: "Click for more info",
       athletesTitle: "🏃 Athletes",
       athletesText: "Meet the competitors",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     no: {
       title: "Nordic High Jump Challenge",
@@ -97,7 +97,7 @@ export default function Home() {
       prizeText: "Trykk for mer info",
       athletesTitle: "🏃 Utøvere",
       athletesText: "Møt deltakerne",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     },
     sv: {
       title: "Nordic High Jump Challenge",
@@ -133,7 +133,7 @@ export default function Home() {
       prizeText: "Klicka för mer info",
       athletesTitle: "🏃 Idrottare",
       athletesText: "Möt deltagarna",
-      footer: "© 2025 Nordic High Jump Challenge. All rights reserved."
+      footer: "© 2026 Nordic High Jump Challenge. All rights reserved."
     }
   };
 
