@@ -70,7 +70,7 @@ export default function AthletesPage() {
 
   const athletes = [
     { name: 'Melwin Lycke Holm', club: 'Kils AIK', country: 'sweden', pr: '2.24 m' },
-    { name: 'Erlend Bolstad Raa', club: 'Fyllingen', country: 'norway', pr: '2.20 m' },
+    { name: 'Erlend Bolstad Raa', club: 'Fyllingen', country: 'norway', pr: '2.21 m' },
     { name: 'Michalis Christofi', club: 'Tuebergs FK', country: 'cyprus', pr: '2.18 m' },
     { name: 'Mads Moos Larsen', club: 'Aarhus 1900', country: 'denmark', pr: '2.15 m' },
     { name: 'Harry Whyley', club: 'Notts AC', country: 'gbr', pr: '2.15 m' },
