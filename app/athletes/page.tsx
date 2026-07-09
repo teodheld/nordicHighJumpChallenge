@@ -69,16 +69,14 @@ export default function AthletesPage() {
   };
 
   const athletes = [
-    { name: 'Melwin Lycke Holm', club: 'Kils AIK', country: 'sweden', pr: '2.24 m' },
-    { name: 'Erlend Bolstad Raa', club: 'Fyllingen', country: 'norway', pr: '2.21 m' },
-    { name: 'Michalis Christofi', club: 'Tuebergs FK', country: 'cyprus', pr: '2.18 m' },
+    { name: 'Loizos Chrysostomou', club: 'Gymnastics Club Olympia ', country: 'cyprus', pr: '2.19 m' },
     { name: 'Mads Moos Larsen', club: 'Aarhus 1900', country: 'denmark', pr: '2.15 m' },
     { name: 'Harry Whyley', club: 'Notts AC', country: 'gbr', pr: '2.15 m' },
     { name: 'Abdulrahman Al-Malki', club: '', country: 'qatar', pr: '2.12 m' },
     { name: 'Tobias Heldal', club: 'Fana IL', country: 'norway', pr: '2.11 m' },
     { name: 'Marius Hytholm Alex Petersen', club: 'Sparta', country: 'denmark', pr: '2.10 m' },
-    { name: 'Aboub Zouak', club: '', country: 'algeria', pr: '2.06 m' },
-    { name: 'Andrei Popa', club: 'Mariestad AIF', country: 'sweden', pr: '2.03 m' }
+    { name: 'Aboub Zouak', club: '', country: 'algeria', pr: '2.07 m' },
+    { name: 'Andrei Popa', club: 'Mariestad AIF', country: 'sweden', pr: '2.04 m' }
   ];
 
   return (

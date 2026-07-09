@@ -5,11 +5,9 @@ import { useState, useEffect } from 'react';
 
 export default function MaifPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  // Start with default language (no localStorage check initially)
   const [language, setLanguage] = useState<'en' | 'no' | 'sv'>('en');
   const [isClient, setIsClient] = useState(false);
 
-  // Load saved language after component mounts (client-side only)
   useEffect(() => {
     setIsClient(true);
     const saved = localStorage.getItem('preferredLanguage');
@@ -18,14 +16,13 @@ export default function MaifPage() {
     }
   }, []);
 
-  // Save language when it changes
   const handleLanguageChange = (newLang: 'en' | 'no' | 'sv') => {
     setLanguage(newLang);
     if (isClient) {
       localStorage.setItem('preferredLanguage', newLang);
     }
   };
-  
+
   const images = [
     '/images/mariestad1.jpeg',
     '/images/mariestad2.jpeg',
@@ -36,6 +33,9 @@ export default function MaifPage() {
     en: {
       title: "MAIFhoppet",
       subtitle: "A part of Nordic High Jump Challenge",
+      startTime: "Start: 15:00. Roll call 15 minutes before.",
+      heights: "Heights: 191–196–201–205–209–212–215–218–220–222–224 +2 cm",
+      streamingLabel: "Live stream",
       competitionTitle: "About the Competition",
       competitionText: "MAIFhoppet is part of the Nordic High Jump Challenge, a prestigious competition series bringing together the best high jumpers from the Nordic countries. The competition offers a unique opportunity to witness international athletics talent in a classic sports environment.",
       arenaTitle: "Arena: Högelid Idrottsplats",
@@ -55,6 +55,9 @@ export default function MaifPage() {
     no: {
       title: "MAIFhoppet",
       subtitle: "En del av Nordic High Jump Challenge",
+      startTime: "Start: 15:00. Opprop 15 minutter før.",
+      heights: "Hopphøyder: 191–196–201–205–209–212–215–218–220–222–224 +2 cm",
+      streamingLabel: "Direktestrømming",
       competitionTitle: "Om stevnet",
       competitionText: "MAIFhoppet er en del av Nordic High Jump Challenge, en prestisjetung konkurranseserie som samler de beste høydehopperne fra de nordiske landene. Stevnet tilbyr en unik mulighet til å se internasjonal friidrettstalent i et klassisk idrettsmiljø.",
       arenaTitle: "Arena: Högelid Idrottsplats",
@@ -74,6 +77,9 @@ export default function MaifPage() {
     sv: {
       title: "MAIFhoppet",
       subtitle: "En del av Nordic High Jump Challenge",
+      startTime: "Start: 15:00. Upprop 15 minuter innan.",
+      heights: "Hopphöjder: 191–196–201–205–209–212–215–218–220–222–224 +2 cm",
+      streamingLabel: "Direktsändning",
       competitionTitle: "Om tävlingen",
       competitionText: "MAIFhoppet är en del av Nordic High Jump Challenge, en prestigefylld tävlingsserie som samlar de bästa höjdhopparna från Norden. Tävlingen erbjuder en unik möjlighet att se internationell friidrottstalang i en klassisk idrottsmiljö.",
       arenaTitle: "Arena: Högelid Idrottsplats",
@@ -94,7 +100,6 @@ export default function MaifPage() {
 
   const t = content[language];
 
-  // Auto-advance slideshow every 4 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
@@ -106,7 +111,7 @@ export default function MaifPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Back Button - Fixed Top Left */}
       <div className="fixed top-4 left-4 z-20">
-        <Link 
+        <Link
           href="/"
           className="inline-flex items-center bg-white text-gray-700 px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition font-semibold hover:bg-gray-50"
         >
@@ -126,13 +131,39 @@ export default function MaifPage() {
           <option value="sv">🇸🇪 Svenska</option>
         </select>
       </div>
-      
+
       <div className="bg-white shadow-xl overflow-hidden">
         {/* Header */}
         <div className="bg-blue-600 text-white p-8 text-center">
           <div className="text-5xl mb-4">🏆</div>
           <h1 className="text-4xl font-bold mb-2">{t.title}</h1>
           <p className="text-xl">{t.subtitle}</p>
+        </div>
+
+        {/* Event Info Banner */}
+        <div className="bg-blue-50 border-b border-blue-100 px-8 py-6">
+          <div className="max-w-3xl mx-auto flex flex-col gap-3">
+            <div className="flex items-center gap-3 text-gray-800">
+              <span className="text-xl">🕒</span>
+              <span className="font-semibold">{t.startTime}</span>
+            </div>
+            <div className="flex items-center gap-3 text-gray-800">
+              <span className="text-xl">📏</span>
+              <span className="font-semibold">{t.heights}</span>
+            </div>
+            <div className="flex items-center gap-3 text-gray-800">
+              <span className="text-xl">📺</span>
+              <span className="font-semibold">{t.streamingLabel}:</span>
+              <a
+                href="https://www.friidrottskanalen.se/sv/livestream/s-maif-hoppet-1it3dn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline break-all"
+              >
+                friidrottskanalen.se
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Image Slideshow */}
@@ -151,7 +182,7 @@ export default function MaifPage() {
               />
             </div>
           ))}
-          
+
           {/* Slide indicators */}
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
             {images.map((_, index) => (
@@ -166,7 +197,6 @@ export default function MaifPage() {
             ))}
           </div>
         </div>
-
 
         {/* Content */}
         <div className="p-8">
@@ -197,8 +227,8 @@ export default function MaifPage() {
           {/* Contact Section */}
           <div className="flex flex-col items-center mb-8 bg-gray-50 p-6 rounded-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.contactTitle}</h2>
-            
-            <div className="flex gap-8"> 
+
+            <div className="flex gap-8">
               {/* Meeting Director */}
               <div className="bg-gray-100 mb-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">{t.meetingDirector}</h3>
@@ -220,7 +250,7 @@ export default function MaifPage() {
               </div>
 
               {/* Athletes' Liaison */}
-              <div className = "bg-gray-100">
+              <div className="bg-gray-100">
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">{t.athletesLiaison}</h3>
                 <p className="text-lg text-gray-700 mb-1">
                   <strong>{t.name}:</strong> Silvia Popa
@@ -242,15 +272,14 @@ export default function MaifPage() {
           </div>
         </div>
 
-          {/* Footer */}
-          <footer className="bg-gray-900 text-white py-8">
-            <div className="container mx-auto px-4 text-center">
-              <p className="text-gray-400">
-                {t.footer}
-              </p>
-            </div>
-          </footer>
-          
+        {/* Footer */}
+        <footer className="bg-gray-900 text-white py-8">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-gray-400">
+              {t.footer}
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   );
